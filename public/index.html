@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odonto.co</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Odonto.co - Gestión de Pacientes</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Crear Paciente</h2>
+            <form id="formCrearPaciente">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" required>
+                <label for="fechaInicioTratamiento">Fecha de Inicio del Tratamiento:</label>
+                <input type="date" id="fechaInicioTratamiento" required>
+                <label for="costoTratamiento">Costo del Tratamiento:</label>
+                <input type="number" id="costoTratamiento" step="0.01" required>
+                <label for="estadoTratamiento">Estado del Tratamiento:</label>
+                <select id="estadoTratamiento">
+                    <option value="false">No Culminado</option>
+                    <option value="true">Culminado</option>
+                </select>
+                <label for="fotoInicial">Foto Inicial (URL):</label>
+                <input type="url" id="fotoInicial">
+                <label for="historiaClinica">Historia Clínica:</label>
+                <textarea id="historiaClinica"></textarea>
+                <label for="categoriaTratamiento">Categoría del Tratamiento:</label>
+                <select id="categoriaTratamiento" required>
+                    <option value="Preventivos">Preventivos</option>
+                    <option value="Restauradores">Restauradores</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                <button type="submit">Crear Paciente</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Buscar Paciente por ID</h2>
+            <form id="formBuscarPaciente">
+                <label for="buscarID">ID del Paciente:</label>
+                <input type="number" id="buscarID" required>
+                <button type="submit">Buscar</button>
+            </form>
+            <div id="resultadoBusqueda"></div>
+        </section>
+
+        <section>
+            <h2>Listar Todos los Pacientes</h2>
+            <button id="btnListarPacientes">Listar Pacientes</button>
+            <table id="tablaPacientes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Inicio Tratamiento</th>
+                        <th>Costo</th>
+                        <th>Estado</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Actualizar Paciente</h2>
+            <form id="formActualizarPaciente">
+                <label for="actualizarID">ID del Paciente:</label>
+                <input type="number" id="actualizarID" required>
+                <label for="actualizarNombre">Nombre:</label>
+                <input type="text" id="actualizarNombre">
+                <label for="actualizarFechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="actualizarFechaNacimiento">
+                <label for="actualizarFechaInicioTratamiento">Fecha de Inicio del Tratamiento:</label>
+                <input type="date" id="actualizarFechaInicioTratamiento">
+                <label for="actualizarCostoTratamiento">Costo del Tratamiento:</label>
+                <input type="number" id="actualizarCostoTratamiento" step="0.01">
+                <label for="actualizarEstadoTratamiento">Estado del Tratamiento:</label>
+                <select id="actualizarEstadoTratamiento">
+                    <option value="false">No Culminado</option>
+                    <option value="true">Culminado</option>
+                </select>
+                <label for="actualizarFotoInicial">Foto Inicial (URL):</label>
+                <input type="url" id="actualizarFotoInicial">
+                <label for="actualizarHistoriaClinica">Historia Clínica:</label>
+                <textarea id="actualizarHistoriaClinica"></textarea>
+                <label for="actualizarCategoriaTratamiento">Categoría del Tratamiento:</label>
+                <select id="actualizarCategoriaTratamiento">
+                    <option value="Preventivos">Preventivos</option>
+                    <option value="Restauradores">Restauradores</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                <button type="submit">Actualizar Paciente</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Eliminar Paciente</h2>
+            <form id="formEliminarPaciente">
+                <label for="eliminarID">ID del Paciente:</label>
+                <input type="number" id="eliminarID" required>
+                <button type="submit">Eliminar</button>
+            </form>
+            <div id="resultadoEliminar"></div>
+        </section>
+    </main>
+</body>
+</html>
