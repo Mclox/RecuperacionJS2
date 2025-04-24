@@ -15,6 +15,8 @@
         <section>
             <h2>Crear Paciente</h2>
             <form id="formCrearPaciente">
+                <label for="id">ID:</label>
+                <input type="number" id="id" required>
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" required>
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
@@ -60,11 +62,12 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>Fecha Nacimiento</th>
+                        <th>Historia Clínica</th>
                         <th>Inicio Tratamiento</th>
                         <th>Costo</th>
                         <th>Estado</th>
                         <th>Categoría</th>
+                        <th>Foto Inicial</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -114,5 +117,10 @@
             <div id="resultadoEliminar"></div>
         </section>
     </main>
+    <!-- Modal para ver la imagen -->
+<div id="modal" class="modal">
+    <span id="cerrarModal" class="cerrar">&times;</span>
+    <img class="modal-content" id="imgModal">
+</div>
 </body>
 </html>

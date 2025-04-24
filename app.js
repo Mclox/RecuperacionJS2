@@ -1,15 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors"); // <-- Agregado para permitir solicitudes del frontend
 const rutasPacientes = require("./routes/rutasPacientes");
 
 const app = express();
 const PUERTO = 3000;
 
+// Middleware para habilitar CORS
+app.use(cors()); // <-- Muy importante
+
 // Middleware para parsear el cuerpo de las solicitudes JSON
 app.use(bodyParser.json());
 
 // Middleware para servir archivos estáticos desde la carpeta "public"
-app.use(express.static("public"));
+app.use(express.static("public")); // Asegúrate de tener index.html dentro de esta carpeta
 
 // Rutas de la API
 app.use("/api", rutasPacientes);
@@ -25,7 +29,16 @@ app.use((err, req, res, next) => {
     res.status(500).json({ mensaje: "Error interno del servidor." });
 });
 
+// Middleware para ver las solicitudes que llegan
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`); // Log de cada solicitud
+    next();
+});
+
+
 // Iniciar el servidor
 app.listen(PUERTO, () => {
     console.log(`🚀 Servidor corriendo en http://localhost:${PUERTO}`);
 });
+
+

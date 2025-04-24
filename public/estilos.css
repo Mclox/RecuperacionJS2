@@ -1,14 +1,134 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
+    background-color: #f9fbfc;
+    color: #333;
+    padding: 2rem;
+    line-height: 1.6;
 }
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
+
+header {
+    background-color: #d7f2ec;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
-form input, form select, form button {
-    margin-bottom: 10px;
-    padding: 8px;
+
+header h1 {
+    font-size: 2rem;
+    color: #146356;
+}
+
+main section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: #0e6b63;
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+    font-weight: 600;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #0e6b63;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+form button:hover {
+    background-color: #094940;
+}
+
+#tablaPacientes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#tablaPacientes th,
+#tablaPacientes td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#tablaPacientes th {
+    background-color: #e2f5f1;
+    color: #0e6b63;
+}
+
+#tablaPacientes tr:hover {
+    background-color: #f0fdfc;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: #f1f1f1;
+    text-decoration: none;
+    cursor: pointer;
 }

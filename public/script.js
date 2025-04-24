@@ -22,6 +22,7 @@ const fetchAPI = async (endpoint, method = "GET", body = null) => {
 document.getElementById("formCrearPaciente").addEventListener("submit", async (e) => {
     e.preventDefault();
     const paciente = {
+        ID: parseInt(document.getElementById("id").value),
         Nombre: document.getElementById("nombre").value,
         FechaNacimiento: document.getElementById("fechaNacimiento").value,
         FechaInicioTratamiento: document.getElementById("fechaInicioTratamiento").value,
@@ -61,14 +62,34 @@ document.getElementById("btnListarPacientes").addEventListener("click", async ()
         <tr>
             <td>${paciente.ID}</td>
             <td>${paciente.Nombre}</td>
-            <td>${paciente.FechaNacimiento}</td>
+            <td>${paciente.HistoriaClinica || "No disponible"}</td>
             <td>${paciente.FechaInicioTratamiento}</td>
             <td>${paciente.CostoTratamiento}</td>
             <td>${paciente.EstadoTratamiento ? "Culminado" : "No Culminado"}</td>
             <td>${paciente.CategoriaTratamiento}</td>
+            <td>
+                ${paciente.FotoInicial ? 
+                    `<img src="${paciente.FotoInicial}" alt="Foto del paciente" width="60" height="60" style="object-fit: cover; border-radius: 10px; cursor: pointer;" onclick="mostrarModal('${paciente.FotoInicial}')">` 
+                    : "Sin foto"}
+            </td>
         </tr>
     `).join("");
 });
+
+// Mostrar la imagen en el modal
+function mostrarModal(fotoUrl) {
+    const modal = document.getElementById("modal");
+    const imgModal = document.getElementById("imgModal");
+    imgModal.src = fotoUrl;
+    modal.style.display = "block";  // Mostrar el modal
+}
+
+// Cerrar el modal cuando se hace clic en la X
+document.getElementById("cerrarModal").addEventListener("click", () => {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";  // Ocultar el modal
+});
+
 
 // Actualizar un paciente
 document.getElementById("formActualizarPaciente").addEventListener("submit", async (e) => {

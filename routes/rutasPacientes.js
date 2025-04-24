@@ -9,7 +9,7 @@ const {
 
 const router = express.Router();
 
-// Ruta para crear un nuevo paciente
+// Ruta para crear un nuevo paciente    
 router.post("/pacientes", crearPaciente);
 
 // Ruta para obtener todos los pacientes
